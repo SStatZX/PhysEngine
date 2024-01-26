@@ -1,0 +1,14 @@
+[
+{
+  "directory": "/home/lewisg/Documents/Computer Science/C++/Physics Engine/build",
+  "command": "/usr/bin/g++ -I\"/home/lewisg/Documents/Computer Science/C++/Physics Engine/include\" -g -o CMakeFiles/alteon.dir/src/Vector2.cpp.o -c \"/home/lewisg/Documents/Computer Science/C++/Physics Engine/src/Vector2.cpp\"",
+  "file": "/home/lewisg/Documents/Computer Science/C++/Physics Engine/src/Vector2.cpp",
+  "output": "CMakeFiles/alteon.dir/src/Vector2.cpp.o"
+},
+{
+  "directory": "/home/lewisg/Documents/Computer Science/C++/Physics Engine/build",
+  "command": "/usr/bin/g++ -I\"/home/lewisg/Documents/Computer Science/C++/Physics Engine/include\" -g -o CMakeFiles/alteon.dir/src/main.cpp.o -c \"/home/lewisg/Documents/Computer Science/C++/Physics Engine/src/main.cpp\"",
+  "file": "/home/lewisg/Documents/Computer Science/C++/Physics Engine/src/main.cpp",
+  "output": "CMakeFiles/alteon.dir/src/main.cpp.o"
+}
+]

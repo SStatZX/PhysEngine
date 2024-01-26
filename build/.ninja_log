@@ -1,0 +1,6 @@
+# ninja log v5
+2	421	1698967313261722171	src/CMakeFiles/alteon.dir/main.cpp.o	d10387e1bea2df7
+421	515	1698967313355054813	src/alteon	1efb1a531f746c25
+1	40	1705279454003156738	CMakeFiles/alteon.dir/src/Vector2.cpp.o	1e2c116c1d38ac98
+2	392	1705279493146469326	CMakeFiles/alteon.dir/src/main.cpp.o	1b93d9c5aa71f73a
+392	460	1705279493213135956	alteon	54610e796df0e164
