@@ -87,5 +87,5 @@ inline bool Vector2::operator!=(const Vector2& vector) const {
     return !(*this == vector);
 }
 inline std::string Vector2::toString() const {
-    return "Vector2(" + std::to_string(x) + "," + std::to_string(y) + ")";
+    return "Vector2(" + std::to_string(x) + ", " + std::to_string(y) + ")";
 }
