@@ -18,6 +18,8 @@ public:
 
     void normalize();
 
+    void setToZero();
+
     std::string toString() const;
 
     Vector2& operator+=(const Vector2& vector);
@@ -31,6 +33,10 @@ public:
     bool operator==(const Vector2& vector) const;
 
     bool operator!=(const Vector2& vector) const;
+
+    float& operator[] (int index);
+
+    const float& operator[] (int index) const;
 };
 
 inline Vector2::Vector2() : x(0.0), y(0.0) { // same as just x=0 and y=0 in body I think? Just looks neater
@@ -79,6 +85,10 @@ inline Vector2& Vector2::operator/=(float num) {
     return *this;
 }
 
+inline void Vector2::setToZero() {
+    x=0; y=0;
+}
+
 inline bool Vector2::operator==(const Vector2& vector) const {
     return (x == vector.x && y == vector.y);
 }
@@ -86,6 +96,15 @@ inline bool Vector2::operator==(const Vector2& vector) const {
 inline bool Vector2::operator!=(const Vector2& vector) const {
     return !(*this == vector);
 }
+
 inline std::string Vector2::toString() const {
     return "Vector2(" + std::to_string(x) + ", " + std::to_string(y) + ")";
+}
+
+inline float& Vector2::operator[] (int index) {
+    return (&x)[index];
+}
+
+inline const float& Vector2::operator[] (int index) const {
+    return (&x)[index];
 }
