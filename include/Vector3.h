@@ -37,9 +37,8 @@ inline Vector3::Vector3() : x(0.0), y(0.0), z(0.0) { // same as just x=0 and y=0
 
 }
 
-inline Vector3::Vector3(float newX, float newY, float newZ) : x(newX), y(newY), z(newZ) {
+inline Vector3::Vector3(float newX, float newY, float newZ) : x(newX), y(newY), z(newZ) { }
 
-}
 // Returns length or magnitude of vector.
 inline float Vector3::length() const {
     return std::sqrt(x*x + y*y + z*z);

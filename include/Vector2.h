@@ -37,6 +37,16 @@ public:
     float& operator[] (int index);
 
     const float& operator[] (int index) const;
+
+    friend Vector2 operator+(const Vector2& vec1, const Vector2& vec2);
+    friend Vector2 operator-(const Vector2& vec1, const Vector2& vec2);
+    friend Vector2 operator-(const Vector2& vec);
+    friend Vector2 operator*(const Vector2& vec, float num);
+    friend Vector2 operator*(float num, const Vector2& vec);
+    friend Vector2 operator*(const Vector2& vec1, const Vector2& vec2);
+    friend Vector2 operator/(const Vector2& vec, float num);
+    friend Vector2 operator/(const Vector2& vec1, const Vector2& vec2);
+
 };
 
 inline Vector2::Vector2() : x(0.0), y(0.0) { // same as just x=0 and y=0 in body I think? Just looks neater
@@ -59,6 +69,46 @@ inline void Vector2::normalize() {
     float magnitude = length();
     x /= magnitude;
     y /= magnitude;
+}
+// Additition operator.
+inline Vector2 operator+(const Vector2& vec1, const Vector2& vec2)
+{
+    return Vector2(vec1.x+vec2.x, vec1.y+vec2.y);
+}
+// Subtraction operation.
+inline Vector2 operator-(const Vector2& vec1, const Vector2& vec2)
+{
+    return Vector2(vec1.x - vec2.x, vec1.y - vec2.y);
+}
+// Subtraction (overload for minus values).
+inline Vector2 operator-(const Vector2 vec)
+{
+    return Vector2(-vec.x, -vec.y);
+}
+// Multiplication with number.
+inline Vector2 operator*(const Vector2& vec, float num)
+{
+    return Vector2(vec.x * num, vec.y * num);
+}
+// Multiplication with two vector2s.
+inline Vector2 operator*(const Vector2& vec1, const Vector2& vec2)
+{
+    return Vector2(vec1.x * vec2.x, vec1.y * vec2.y);
+}
+// Reverse input compatability.
+inline Vector2 operator*(float num, const Vector2& vec)
+{
+    return vec * num;
+}
+// Division with number.
+inline Vector2 operator/(const Vector2& vec, float num)
+{
+    return Vector2(vec.x / num, vec.y / num);
+}
+// Division with two vector2s.
+inline Vector2 operator/(const Vector2& vec1, const Vector2& vec2)
+{
+    return Vector2(vec1.x / vec2.x, vec1.y / vec2.y);
 }
 // Addition equals operator.
 inline Vector2& Vector2::operator+=(const Vector2& vector) {

@@ -1,7 +1,7 @@
 #include <iostream>
 #include "Vector2.h"
 #include "Vector3.h"
-
+#include "Matrix2x2.h"
 
 int main() 
 {
@@ -20,5 +20,8 @@ int main()
     std::cout << cheese.toString() << std::endl;
     std::cout << carrot.dot(cheese) << std::endl;
     std::cout << carrot.length() << std::endl;
+
+    Matrix2x2 toast(1.0, 2.0, 3.0, 4.0);
+    std::cout << toast.toString() << std::endl;
 }
 
