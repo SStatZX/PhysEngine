@@ -1,6 +1,7 @@
 #pragma once
 
 #include <cmath>
+#include <string>
 #include <cassert>
 #define MACHINE_EPSILON 1.192092896e-07F
 
