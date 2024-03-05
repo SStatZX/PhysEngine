@@ -15,6 +15,8 @@ int main()
     std::cout << apple.to_string() << std::endl;
     std::cout << banana.length() << std::endl;
     std::cout << banana.dot(apple) << std::endl;
+    Vector2 product = banana * apple;
+    std::cout << product.to_string() << std::endl;
 
     Vector3 cheese(2.0F, 1.0F, 4.0F);
     Vector3 carrot(1.0F, 1.0F, 9.0F);
