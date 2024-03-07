@@ -4,6 +4,7 @@
 // #include "Matrix2x2.h"
 #include "MathPhys.h"
 #include "BoundingCircle.h"
+#include <GL/glut.h>
 
 int main() 
 {
