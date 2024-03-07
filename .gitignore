@@ -1,2 +1,3 @@
 build/*
 old/*
+include/.example.cpp

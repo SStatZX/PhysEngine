@@ -8,7 +8,7 @@
 int main() 
 {
     Vector2 banana(2.0F, 3.0F);
-    Vector2 apple(3.0F, 1.0F);
+    Vector2 apple(3.0F, -2.0F);
 
 
     // std::cout << apple.to_string() << std::endl;
@@ -31,12 +31,16 @@ int main()
     // std::cout << toast.to_string() << std::endl;
 
     BoundingCircle c1(banana, 4.0);
-    BoundingCircle c2(apple, 1.0);
+    BoundingCircle c2(apple, 3.0);
+
 
     BoundingCircle c3(banana, 1.0);
     // BoundingCircle c4(apple, 4.0);    
+    Intersection inter = c1.getIntersection(c2);
 
-    std::cout << "Bounding?: " << c1.isColliding(c2) << ", " << c1.getDistance(c2) << std::endl;
-    std::cout << "Bounding?: " << c2.isColliding(c3) << ", " << c2.getDistance(c3) << std::endl;
+    // std::string info = (c1.getIntersection(c2)).to_string();
+    std::cout << "Bounding?: " << inter.to_string() << std::endl;
+    // std::cout << "Bounding?: " << c2.isColliding(c3) << ", " << c2.getDistance(c3) << std::endl;
 }
+
 
