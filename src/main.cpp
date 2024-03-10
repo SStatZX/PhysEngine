@@ -5,12 +5,18 @@
 #include "MathPhys.h"
 #include "BoundingCircle.h"
 #include <GL/glut.h>
+#include <GLFW/glfw3.h>
 
 int main() 
 {
+    // BoundingCircleTest();
+
+    return 0;
+}
+
+void BoundingCircleTest() {
     Vector2 banana(2.0F, 3.0F);
     Vector2 apple(3.0F, -2.0F);
-
 
     // std::cout << apple.to_string() << std::endl;
     // apple.normalize();
