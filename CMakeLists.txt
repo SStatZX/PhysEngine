@@ -7,14 +7,15 @@ enable_testing()
 find_package(OpenGL REQUIRED)
 find_package(GLUT REQUIRED)
 find_package(GLEW REQUIRED)
+find_package(glfw3 REQUIRED)
 
 # add_subdirectory(include)
 file(GLOB_RECURSE SOURCES src/*.cpp )
 add_executable(alteon ${SOURCES})
 target_include_directories(alteon PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/include)
 
-include_directories( ${OPENGL_INCLUDE_DIRS}  ${GLUT_INCLUDE_DIRS}  )
-target_link_libraries(alteon ${OPENGL_LIBRARIES} ${GLUT_LIBRARY} ${GLEW_LIBRARY} )
+# include_directories( ${OPENGL_INCLUDE_DIRS}  ${GLUT_INCLUDE_DIRS}  )
+target_link_libraries(alteon OpenGL::OpenGL GLUT::GLUT GLEW::GLEW glfw )
 
 set(CPACK_PROJECT_NAME ${PROJECT_NAME})
 set(CPACK_PROJECT_VERSION ${PROJECT_VERSION})
