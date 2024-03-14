@@ -140,7 +140,7 @@ int main(void)
     // glGenVertexArrays(1, &VAO);
     // glBindVertexArray(VAO);
 
-    ShaderProgramSource source = ParseShader("res/shaders/Basic.shader");
+    ShaderProgramSource source = ParseShader("res/shaders/circle.shader");
 
     unsigned int shader = CreateShader(source.VertexSource, source.FragmentSource);
     glUseProgram(shader);

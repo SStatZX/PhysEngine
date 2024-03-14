@@ -1,0 +1,4 @@
+https://learnopengl.com/Getting-started/OpenGL
+https://www.youtube.com/watch?v=71BLZwRGUJE
+https://www.shadertoy.com/view/XsjGDt
+https://github.com/g-truc/glm/blob/master/manual.md
