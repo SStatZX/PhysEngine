@@ -4,13 +4,15 @@ project(alteon VERSION 0.1.0 LANGUAGES C CXX)
 include(CTest)
 enable_testing()
 
+add_subdirectory(dependencies)
+
 # find_package(OpenGL REQUIRED)
 # find_package(GLUT REQUIRED)
 # find_package(GLEW REQUIRED)
 # find_package(glfw3 REQUIRED)
 # set(ImGUI-SFML_DIR /usr/lib/cmake/ImGui-SFML/ImGui-SFMLConfig.cmake)
-find_package(imgui REQUIRED)
-find_package(ImGui-SFML REQUIRED)
+# find_package(imgui REQUIRED)
+# find_package(ImGui-SFML REQUIRED)
 # find_package(EnTT REQUIRED)
 
 
