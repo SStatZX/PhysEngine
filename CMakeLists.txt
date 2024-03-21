@@ -11,6 +11,7 @@ enable_testing()
 # set(ImGUI-SFML_DIR /usr/lib/cmake/ImGui-SFML/ImGui-SFMLConfig.cmake)
 find_package(imgui REQUIRED)
 find_package(ImGui-SFML REQUIRED)
+# find_package(EnTT REQUIRED)
 
 
 
@@ -22,6 +23,7 @@ target_include_directories(alteon PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/include)
 target_link_libraries(alteon 
     PUBLIC
         ImGui-SFML::ImGui-SFML
+        # EnTT::EnTT
 )
 # OpenGL::OpenGL GLUT::GLUT GLEW::GLEW glfw
 set(CPACK_PROJECT_NAME ${PROJECT_NAME})

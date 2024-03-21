@@ -8,6 +8,9 @@ public:
     Intersection(const bool colliding, const Vector2& distance) :
         m_Colliding(colliding), m_Distance(distance) {}
 
+    inline bool doesIntersect() const { return m_Colliding; }
+    inline const Vector2& getDistance() const { return m_Distance; }
+
     std::string to_string() {
         return std::to_string(m_Colliding) + ", " + m_Distance.to_string();
     }

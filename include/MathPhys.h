@@ -32,6 +32,10 @@ public:
         x=0; y=0;
     }
 
+    inline Vector2 reflect(const Vector2& normal) const {
+        return *this - (normal * this->dot(normal) * 2);
+    }
+
     inline std::string to_string() const {
         return "Vector2(" + std::to_string(x) + ", " + std::to_string(y) + ")";
     }
