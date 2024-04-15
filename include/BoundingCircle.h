@@ -19,8 +19,11 @@ public:
         direction /= cDistance; // vd / |vd| = normalized form
         float distance = cDistance - rDistance; // |vd| - rs : difference in distance between centres and sum of radii
 
-        return Intersection(distance < 0, direction * distance); // if distance < 0 => |vd| < rs i.e. distance between of centres is greater than distance between radii so intersecting
-                                    // direction * distance = direction with magnitude of difference in intersection hence if not touching ignore
+        return Intersection(distance < 0, direction * distance); /* if distance < 0 => |vd| < rs 
+                                    i.e. distance between of centres is greater than 
+                                    the distance between radii therefore intersecting
+                                    direction * distance = direction with magnitude of difference in intersection
+                                    hence if not touching ignore */
     }
 
 private:

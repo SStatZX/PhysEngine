@@ -7,18 +7,19 @@
 #include <SFML/Window/Event.hpp>
 
 #include "PhysicsEngine.h"
-
+void BoundingCircleTest();
 
 int main() {
+    // BoundingCircleTest();
     sf::RenderWindow window(sf::VideoMode(1920, 1080), "Simple Physics Engine");
     window.setFramerateLimit(60);
     ImGui::SFML::Init(window);
 
     sf::Clock deltaClock;
 
-    PhysicsEngine physicsEngine;
+    PhysicsEngine physicsEngine; // Create PhysicsEngine object
 
-    float simSpeed = 0.1f;
+    float simSpeed = 0.1f; // User variables, default values / definitions
     float grav = 0.1f;
     float CoR = 0.95;
     float circleSize = 50.0f;
@@ -26,12 +27,9 @@ int main() {
     bool special = false;
 
     physicsEngine.AddObject(PhysicsObject(
-        Vector2(480.0f, 600.0f), Vector2(0.0f, -1.0f), 50.0f));
-    // physicsEngine.AddObject(PhysicsObject(
-    //     Vector2(400.0f, 200.0f), Vector2(0.0f, 1.595f), 100.0f));
-    // physicsEngine.AddObject(PhysicsObject(
-    //     Vector2(800.0f, 200.0f), Vector2(-1.0f, 0.0f), 100.0f));
-    while (window.isOpen()) {
+        Vector2(480.0f, 600.0f), Vector2(0.0f, -1.0f), 50.0f)); // Create first object.
+
+    while (window.isOpen()) { // Main loop
         sf::Event event;
         sf::Time elapsed = deltaClock.restart();
         sf::Vector2i mousePosition = sf::Mouse::getPosition(window);
@@ -45,15 +43,14 @@ int main() {
                 case sf::Event::MouseButtonReleased:
                     if (event.key.code == sf::Mouse::Right)
                         physicsEngine.AddObject(PhysicsObject(
-                            Vector2(mousePosition.x, mousePosition.y), Vector2(circleVel[0], circleVel[1]), circleSize));
+                            // Add physics object on right click at mouse position.
+                            Vector2(mousePosition.x, mousePosition.y), Vector2(circleVel[0], circleVel[1]), circleSize)); 
             }
         }
 
         ImGui::SFML::Update(window, elapsed);
 
-        // ImGui::ShowDemoWindow();
-
-        ImGui::Begin("Tools");
+        ImGui::Begin("Tools"); // GUI Code, create buttons / sliders changes user variables
         if (ImGui::Button("This spawns a circle."))
             physicsEngine.AddObject(PhysicsObject(
         Vector2(400.0f, 200.0f), Vector2(0.0f, 1.595f), 100.0f));
@@ -67,15 +64,25 @@ int main() {
         ImGui::Checkbox("Don't Press!", &special);
         ImGui::End();
 
-        window.clear();
-        // window.draw();
-        physicsEngine.Simulate(simSpeed, grav * Vector2(0.0f, +1.0f));
-        physicsEngine.HandleCollisions((double)CoR);
-        physicsEngine.Render(window, special);
-        // window.draw(sf::CircleShape(50.0f));
+        window.clear(); // Clear window before rendering
+        physicsEngine.HandleCollisions((double)CoR); // Handle Collision for physics engine, pass in Coefficient of Restitution as a double
+        physicsEngine.Simulate(simSpeed, grav * Vector2(0.0f, +1.0f)); // Gravity is a float, times by a vector which is direction of gravity
+        physicsEngine.Render(window, special); // Pass RenderWindow window by reference (pointer) with bool special as well for render type
         ImGui::SFML::Render(window);
         window.display();
     }
 
     ImGui::SFML::Shutdown();
+}
+
+void BoundingCircleTest() {
+    Vector2 banana(2.0F, 3.0F);
+    Vector2 apple(3.0F, -2.0F);
+
+    BoundingCircle c1(banana, 4.0);
+    BoundingCircle c2(apple, 3.0);
+
+    Intersection inter = c1.getIntersection(c2);
+
+    std::cout << "Bounding?: " << inter.to_string() << std::endl;
 }

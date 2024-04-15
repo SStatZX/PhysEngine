@@ -4,37 +4,17 @@ project(alteon VERSION 0.1.0 LANGUAGES C CXX)
 include(CTest)
 enable_testing()
 
-add_subdirectory(dependencies)
+add_subdirectory(dependencies) # Dependencies contains its own CMakeLists.txt that uses FetchContent to get the dependencies ImGUI and SFML
 
-# find_package(OpenGL REQUIRED)
-# find_package(GLUT REQUIRED)
-# find_package(GLEW REQUIRED)
-# find_package(glfw3 REQUIRED)
-# set(ImGUI-SFML_DIR /usr/lib/cmake/ImGui-SFML/ImGui-SFMLConfig.cmake)
-# find_package(imgui REQUIRED)
-# find_package(ImGui-SFML REQUIRED)
-# find_package(EnTT REQUIRED)
+file(GLOB_RECURSE SOURCES src/*.cpp ) # Add all sources in src that end in .cpp
+add_executable(alteon ${SOURCES}) # Add them to the executable
+target_include_directories(alteon PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/include) # Add /include as a include directory
 
-
-
-file(GLOB_RECURSE SOURCES src/*.cpp )
-add_executable(alteon ${SOURCES})
-target_include_directories(alteon PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/include)
-
-# include_directories( ${OPENGL_INCLUDE_DIRS}  ${GLUT_INCLUDE_DIRS}  )
-target_link_libraries(alteon 
+target_link_libraries(alteon # Link the libraries to the main project
     PUBLIC
         ImGui-SFML::ImGui-SFML
-        # EnTT::EnTT
 )
-# OpenGL::OpenGL GLUT::GLUT GLEW::GLEW glfw
+
 set(CPACK_PROJECT_NAME ${PROJECT_NAME})
 set(CPACK_PROJECT_VERSION ${PROJECT_VERSION})
 include(CPack)
-
-
-# find_package(OpenGL REQUIRED)
-# find_package(GLUT REQUIRED)
-# include_directories( ${OPENGL_INCLUDE_DIRS}  ${GLUT_INCLUDE_DIRS} )
-
-# target_link_libraries(testas ${OPENGL_LIBRARIES} ${GLUT_LIBRARY} )
